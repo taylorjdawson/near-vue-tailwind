@@ -7,10 +7,13 @@ import { routes } from './routes.js'
 import storage from './store'
 import VueNear from 'vue-near'
 
+import { publicPath } from '../vue.config'
+
 const app = createApp(App)
 const store = createStore(storage)
 const router = createRouter({
   history: createWebHistory(),
+  basePath: publicPath,
   routes: import.meta.hot ? [] : routes,
   scrollBehavior(to, from, savedPosition) {
     if (to.hash) return { el: to.hash, behavior: 'smooth' }

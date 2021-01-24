@@ -1,3 +1,5 @@
 module.exports = {
-    publicPath: '/near-vue-tailwind/'
+    publicPath: process.env.NODE_ENV === 'production'
+        ? '/near-vue-tailwind/'
+        : '/'
 }
